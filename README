@@ -1,0 +1,66 @@
+312CA - Brinzan Darius-Ionut, Tema - Metode Numerice
+
+Task : 1 . Nearest-Neighbours 
+      - nn_2x2_RGB -  in cadrul acestei functii am extras pe rand fiecare canal in parte
+      (rosu, verde, albastru ), am aplicat functia nn pe cele 3 canale si in final
+      utilizand functia cat am format imaginea finala cu cele 3 canale de culori.
+      - nn_2x2 - in cadrul acestei functii am initializat rezultatul final cu o matrice
+      de zero-uri dupa care am aflat cel mai apropriat pixel utilizand functia "round" dupa
+      care am calculat pixelul din imaginea finala .
+      - nn_resize_RGB - functia de rgb pentru resize este aceeasi ca nn_2x2_RGB, doar ca avem
+      dimensiunile noi p,q, iar la functia cat vom apela valoarea p.
+      - nn_resize - in cadrul acestei functii, am initializat matricea finala "R" cu zero-uri,
+      dupa care am calculat factorii de scalare pe care i-am folosit cand am construit 
+      matricea pentru redimensionare, ulterior am calculat inversa acestei matrice utilizand
+      functia "inv", dupa care am parcurs fiecare pixel cu 2 for-uri (pe linie / coloana) .
+      Am aplicat transformarea inversa pe care am retinut-o intr-o variabila "r", dupa care
+      am initializat x_p,y_p cu r(1), respectiv r(2), dupa care pur si simplu am calculat 
+      folosind formula valoarea pixelului din imaginea finala .
+       2 . Bilinear
+      - surrounding_points -  in cadrul acestei functii am calculat cele 4 puncte utile     	utilizand functia "round" si de
+      asemenea conditionam ca y2/x2 sa nu iasa din matricea noastra .
+      - bilinear_2x2_RGB -  in cadrul acestei functii, extrag rand pe rand fiecare canal RGB,
+      dupa care aplic functia bilinear_2x2 pe fiecare si in final compun imaginea utilizand
+      din nou functia cat.
+      - bilinear_2x2 - aflu coeficientii bilineari utilizand functia bilinear_coef, dupa care 
+      initializez matricea rezultat cu zero-uri, dupa care folosind formula am calculat
+      valoarea pixelului dorit.
+      - bilinear_resize_RGB - aceasta functie este similara functiei bilinear_2x2_RGB, doar 
+      ca se aplica pe valorile p,q.
+      - bilinear_resize - calculez factorii de scalare utili pentru a construi matricea
+      de redimensionare, calculez inversa acestei matrice cu "inv", dupa care parcurg liniile
+      coloanele imaginii, aplic transformarea inversa, aflu x_p, y_p, le trec pe ambele de
+      la 
+      0 ; n - 1 la 1 la n, aflu punctele ce inconjoara punctul, am aflat  coeficientii bilineari si calculez  valoarea interpolata a pixelului.
+      - bilinear_rotate_RGB - functie similara ca cele de mai sus, doar ca avem un "rotation_
+      angle" si aplicam pe cele 3 channel-uri functia bilinear_rotate.
+      - bilinear_rotate - aflu sinus/cosinus de unghiul cerut, initializez matricea de 
+      rotatie, aflu inversa acesteia, parcurg liniile/coloanele, gasesc x_p, y_p, aplic
+      un count pe acestea, pun o conditie ca x_p/y_p sa nu iasa din matrice, aflu punctele
+      inconjuratoare dupa care calculez coeficientii de interpolare pe care ii utilizez cand
+      calculez valoarea interpolata a pixelului .
+      3 . Bicubic
+      - initial am aflat derivatele utilizand informatiile pe care le-am primit din pdf-ul
+      temei .
+      - precalc_d - initializez fiecare matrice ce au derivatele cu zero-uri . Dupa care 
+      parcurg pe rand fiecare matrice in parte, unde calculez derivata in functie de x,y sau
+      xy .
+      - surrounding_points - functie similara celei de la bilinear, unde calculez punctele
+      utile si pun conditii sa nu iesim din matrice .
+      - bicubic_coef - am calculat matricile intermediare, exact cum a fost explicat in pdf, 
+      am construit matricea b iar pe celelalte 2 le-am hardcodat din fisierul pdf, iar dupa
+      rezultatul final a fost dat inmultind cele 3 matrice exact cum a fost explicat .
+      - bicubic_resize_RGB - functia de rgb construita asemanator ca celelalte
+      - bicubic_resize - am calculat factorii de scalare, am construit matricea, i-am 
+      calculat inversa, am aplicat transformarea inversa dupa am aflat punctele care incon
+      joara, coeficientii bicubici cu ajutorul functiei explicata mai sus si am aplicat
+      formula care se afla in pdf-ul cu enuntul si explicatiile pentru tema .
+      P.S : la functia de resize am comentat ce am facut, fiindca am vazut ca dura prea mult 
+	sa compileze, sau cicla nu-mi dadeam seama si clar nu era ceva ok. Am lasat ce am facut
+	comentat sper macar sa ma fi apropriat de rezultatul dorit :D .
+      
+      
+      
+Feedback : A fost o tema super interesanta . Ma bucur ca am reusit sa aplic chestii care sunt
+utilizate in real-life . Overall tema a fost o placere sa descoperi cum faci operatii pe 
+imagini si nu am avut alte probleme cu checkerul .
