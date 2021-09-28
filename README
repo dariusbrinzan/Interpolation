@@ -53,14 +53,4 @@ Task : 1 . Nearest-Neighbours
       - bicubic_resize_RGB - functia de rgb construita asemanator ca celelalte
       - bicubic_resize - am calculat factorii de scalare, am construit matricea, i-am 
       calculat inversa, am aplicat transformarea inversa dupa am aflat punctele care incon
-      joara, coeficientii bicubici cu ajutorul functiei explicata mai sus si am aplicat
-      formula care se afla in pdf-ul cu enuntul si explicatiile pentru tema .
-      P.S : la functia de resize am comentat ce am facut, fiindca am vazut ca dura prea mult 
-	sa compileze, sau cicla nu-mi dadeam seama si clar nu era ceva ok. Am lasat ce am facut
-	comentat sper macar sa ma fi apropriat de rezultatul dorit :D .
-      
-      
-      
-Feedback : A fost o tema super interesanta . Ma bucur ca am reusit sa aplic chestii care sunt
-utilizate in real-life . Overall tema a fost o placere sa descoperi cum faci operatii pe 
-imagini si nu am avut alte probleme cu checkerul .
+      joara, coeficientii bicubici cu ajutorul functiei explicata mai sus .
